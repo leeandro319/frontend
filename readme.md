@@ -37,6 +37,11 @@ As APIs a serem consumidas são:
 * Repositórios de um usuário: [https://api.github.com/users/{username}/repos](https://api.github.com/users/{username}/repos)
 * Detalhes de um repositório: [https://api.github.com/repos/{full_name}](https://api.github.com/repos/{full_name})
 
+### **Como iniciar o desenvolvimento** ###
+
+*  Fork esse repositório na sua conta do GitHub.
+* Crie uma branch com o nome desafio
+
 # Como enviar seu teste
 Envie um email para [codereview@geniontechnology.com.br] com o link do seu repositório.
 
