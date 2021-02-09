@@ -16,11 +16,9 @@ Implementar uma aplicação client-side, que consulte a API do GitHub e mostre o
 
 
 ### **Instruções** ###
-- O foco principal do nosso teste é o backend. Para facilitar você poderá utilizar os arquivos html  disponíveis no diretório assets
+- O foco principal do nosso teste é o frontend.
 - Crie essa aplicação como se fosse uma aplicação real, que seria utilizada pelo Genion
 - Fique à vontade para usar bibliotecas/componentes externos
-- Utilize boas práticas de programação
-- Utilize boas práticas de git
 - Documentar como rodar o projeto
 - Crie uma documentação simples comentando sobre as tecnologias, versões e soluções adotadas
 
