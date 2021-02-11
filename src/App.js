@@ -1,12 +1,15 @@
 import Routes from './routes/index'
 import {BrowserRouter} from 'react-router-dom'
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 const App = () => {
   return(
     <>
     <BrowserRouter>
-      <Routes/>
+      <CssBaseline /> 
+       <Routes/>
     </BrowserRouter>
   </>
   )
