@@ -1,31 +1,39 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
 
+import CardUser from '../../components/CardUser'
 
-import {StyledContainer, Form, UsersSearch} from './styled'
+import {StyledContainer, Form,  Error} from './styled'
 import {Button, TextField} from '@material-ui/core'
 
 import logoGit from '../../assets/Octocat.png'
-
- import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos'
- import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
- import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
- import SwapHorizontalCircleIcon from '@material-ui/icons/SwapHorizontalCircle';
 import api from '../../services/apiGit'
 
 
 const Home = () => {
 
-
-  const [searchUser, setSearchUser] = useState('') //input
-  const [userGit, setUserGit] = useState([])  //array com os users
+  const [searchUser, setSearchUser] = useState('')
+  const [userGit, setUserGit] = useState([])
+  const [errorSearch, setErrorSearch] = useState('')
   
 
  async function handleUser(e) {
     e.preventDefault()
-    const res = await api.get(`users/${searchUser}`)
-    const result = res.data
-    setUserGit([...userGit, result])
+
+    if(!searchUser){
+      setErrorSearch('Digite o nome do Usuário.')
+      return
+    }
+
+    try{
+      const res = await api.get(`users/${searchUser}`)
+      const result = res.data
+      setErrorSearch('')
+      setUserGit([...userGit, result])
+      setSearchUser('')
+    }catch(err){
+      setErrorSearch(`O Usuário não existe`)
+    }
+
   }
 
   return(
@@ -43,24 +51,22 @@ const Home = () => {
         />
         <Button variant="contained" type="submit">Procurar</Button>
       </Form>
-      <UsersSearch>
-      {userGit.map(usuario => (
-        <Link to="" key={usuario.login}>
-        <img className="img-card-user" src={usuario.avatar_url} alt="" />
-        <div className="content-card-user">
-            <h3>{usuario.name}</h3>
-            <p>{usuario.bio}</p>
-            <div className="infos-card-user">          
-              <p><AlternateEmailIcon />{usuario.email ? usuario.email :'Não Definido'}</p>
-              <p><PeopleAltIcon />{usuario.followers} followers</p>
-              <p><SwapHorizontalCircleIcon />{usuario.following} following</p>
-           </div>
-        </div>
-        <ArrowForwardIos />
-        </Link>
+      {errorSearch && <Error>{errorSearch}</Error>}
+
+
+      {userGit.map(user => (
+        <CardUser
+          key={user.login}
+          nameUser={user.name}
+          sourceImg={user.avatar_url}
+          alt={user.login}
+          bio={user.bio}
+          email={user.email}
+          followers={user.followers}
+          following={user.following}
+        />
   ))}
 
-     </UsersSearch>
     </StyledContainer>
   )
 }

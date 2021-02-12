@@ -7,7 +7,7 @@ import UserInfo from '../pages/UserInfo'
 const Routes = () => (
   <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/userinfo' component={UserInfo}/>
+      <Route path='/userinfo/:usuario+' component={UserInfo}/>
   </Switch>
 )
 
