@@ -49,7 +49,7 @@ export const UsersSearch = styled.div`
     }
 
     &:hover{
-      transform: translateX(10px)
+      //transform: translateX(05px)
     }
 
     .img-card-user{
