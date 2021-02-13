@@ -1,5 +1,4 @@
-import  styled  from 'styled-components'
-
+import styled from "styled-components";
 
 export const UsersSearch = styled.div`
   width: calc(80% - 80px);
@@ -12,54 +11,53 @@ export const UsersSearch = styled.div`
     align-items: center;
     padding: 10px 20px;
     text-decoration: none;
-    transition: transform .2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 
-    &+a{
+    & + a {
       margin-top: 16px;
     }
 
-    &:hover{
+    &:hover {
       //transform: translateX(05px)
     }
 
-    .img-card-user{
+    .img-card-user {
       width: 100px;
       height: 100px;
       border-radius: 50%;
     }
 
-    .content-card-user{
+    .content-card-user {
       width: 80%;
       padding-left: 20px;
-      h3{
+      h3 {
         width: 100%;
         font-size: 1.5rem;
-        color: #201F1F;
+        color: #201f1f;
         border-bottom: 1px solid #848484;
       }
-      p{
+      p {
         text-align: justify;
         padding-right: 10px;
-        color: #201F1F;
-    }
+        color: #201f1f;
+      }
     }
 
-    .infos-card-user{
+    .infos-card-user {
       display: flex;
       flex-direction: row;
       justify-content: start;
       align-items: center;
 
-      p{
+      p {
         display: flex;
         justify-content: center;
-        align-items:center;
+        align-items: center;
       }
-
     }
 
-    svg{
-    margin-left: auto;
+    svg {
+      margin-left: auto;
     }
   }
 `;

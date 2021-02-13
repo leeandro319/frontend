@@ -1,5 +1,5 @@
-import { Container } from '@material-ui/core';
-import styled from 'styled-components';
+import { Container } from "@material-ui/core";
+import styled from "styled-components";
 
 export const StyledContainer = styled(Container)`
   height: 100vh;
@@ -9,12 +9,11 @@ export const StyledContainer = styled(Container)`
   align-items: center;
   flex-direction: column;
 
-  .logo{
+  .logo {
     width: 180px;
     height: 150px;
     margin: 40px auto;
   }
-
 `;
 
 export const Form = styled.form`
@@ -25,11 +24,10 @@ export const Form = styled.form`
 
   margin-bottom: 30px;
 
-  button{
+  button {
     margin: 0 0 0 10px;
-    padding: 15px
-  }  
-
+    padding: 15px;
+  }
 `;
 
 export const Error = styled.span`
