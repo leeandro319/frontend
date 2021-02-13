@@ -1,6 +1,9 @@
+import {useRouteMatch} from 'react-router-dom'
+
 const RepoDetail = () => {
+  const {params} = useRouteMatch()
   return(
-    <h1>Repositorios Info</h1>
+    <h1>{params.detail}</h1>
   )
 }
 

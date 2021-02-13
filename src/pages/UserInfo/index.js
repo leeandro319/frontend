@@ -59,7 +59,7 @@ const UserInfo = () => {
       <Repositories>
         <div>
           <h2>Repositórios</h2>
-
+          
         </div>
         <ul>
           {filterRepository.map((repository) => (
@@ -95,7 +95,7 @@ const UserInfo = () => {
                   </div>
                 </div>
               </div>
-              <Link to="/repo-detail" className="more-info-repo">
+              <Link to={`/repo-detail/${repository.full_name}`} className="more-info-repo">
                 <PlayCircleOutlineOutlinedIcon/>
                 <span>Mais detalhes</span>
               </Link>
