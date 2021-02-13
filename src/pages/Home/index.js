@@ -31,7 +31,11 @@ const Home = () => {
       setUserGit([...userGit, result])
       setSearchUser('')
     }catch(err){
+      if(err.response.status === 403){
+      setErrorSearch(`Excedeu o numero de requisições, aguarde alguns minutos.`)
+      }else{
       setErrorSearch(`O Usuário não existe`)
+      }
     }
 
   }
@@ -60,6 +64,7 @@ const Home = () => {
           nameUser={user.name}
           sourceImg={user.avatar_url}
           alt={user.login}
+          login={user.login}
           bio={user.bio}
           email={user.email}
           followers={user.followers}

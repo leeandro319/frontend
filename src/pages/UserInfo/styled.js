@@ -37,7 +37,7 @@ export const Repositories = styled.div`
    width: 95%;
    margin: auto;
 
-    a{
+    ul li{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,7 +49,7 @@ export const Repositories = styled.div`
     margin-bottom: 20px;
     
     img{
-      width: 120px;
+      width: 80px;
       border-radius: 50%;
     }
 
