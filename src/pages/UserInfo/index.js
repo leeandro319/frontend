@@ -28,9 +28,14 @@ const UserInfo = () => {
     });
   }, [params.usuario]);
 
-  const filterRepository = repositories.sort(
+  const filterRepositoryDec = repositories.sort(
     (a, b) => b.stargazers_count - a.stargazers_count
   );
+
+  const filterRepositoryCres = repositories.sort(
+    (a, b) => a.stargazers_count - b.stargazers_count
+  );
+
 
   return (
     <StyledContainer maxWidth="lg">
@@ -62,7 +67,7 @@ const UserInfo = () => {
           
         </div>
         <ul>
-          {filterRepository.map((repository) => (
+          {filterRepositoryDec.map((repository) => (
             <li key={repository.id}>
               <div className="content-repo">
                 <span className="full-tile-repo">{repository.full_name}</span>
