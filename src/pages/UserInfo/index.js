@@ -11,30 +11,37 @@ import { useEffect, useState } from 'react'
 const UserInfo = () => {
   const {params} = useRouteMatch()
   const [repositories, setRepositories] = useState([]);
+  const [owner, setOwner] = useState({});
+
   
   useEffect(()=>{
-
     api.get(`users/${params.usuario}/repos`)
        .then(res => {
          const repositoriesResult = res.data
          setRepositories(repositoriesResult)
        })
-  },[params.usuario])
-  
-  const filterRepository = repositories.sort((a,b)=>b.stargazers_count - a.stargazers_count)
+       api.get(`users/${params.usuario}`)
+       .then(res => {
+        setOwner(res.data)
+         
+       })
+    
+    },[params.usuario])
 
+
+  const filterRepository = repositories.sort((a,b)=>b.stargazers_count - a.stargazers_count)
   
   return(
     <StyledContainer maxWidth="lg">
-      <ContainerUser>
-        <img className="img-user-repo" src="https://avatars.githubusercontent.com/u/39350730?s=460&u=82d063b7a08f675845b7fd6db669f7f6656c574b&v=4" alt="" />
+        <ContainerUser>
+        <img className="img-user-repo" src={owner.avatar_url} alt="" />
         <div className="info-user-repo">
-         <h1>Leandro Guaraldi</h1>
-         <p> Bio loren  Bio loren  Bio loren  Bio loren  Bio loren  Bio loren  Bio loren  Bio loren  Bio loren  Bio loren </p>
-         <div className="social-user-repo">
-         <span>email: leandro@leandro</span>
-            <span>0 Followers</span>
-            <span>0 Followings</span>
+          <h1>{owner.name ? owner.name: 'Nome não definido'}</h1>
+          <p>{owner.bio ? owner.bio: 'Descrição não definida'}</p>
+          <div className="social-user-repo">
+          <span>{owner.email ? owner.email : 'email não definido'}</span>
+            <span>{owner.followers} Followers</span>
+            <span>{owner.following} Followings</span>
           </div>
         </div>
       </ContainerUser>
@@ -51,7 +58,7 @@ const UserInfo = () => {
           <p>{repository.description}</p>
             <div className="content-social-repo">
             <div className="icons-social-repo">
-              <StarIcon/>
+              <StarIcon color={repository.stargazers_count > 0 ? 'primary' : 'disabled'}/>
                 <span>{repository.stargazers_count}</span>
               </div>
           
