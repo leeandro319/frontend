@@ -15,7 +15,7 @@ const CardUser = (props) => {
           <h3>{props.nameUser ? props.nameUser : "Não Definido"}</h3>
           <p>{props.bio}</p>
           <div className="infos-card-user">
-            <p>
+            <p id="emailUser">
               <AlternateEmailIcon />
               {props.email ? props.email : "Não Definido"}
             </p>

@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const UsersSearch = styled.div`
   width: calc(80% - 80px);
   margin-bottom: 20px;
+  @media (max-width: 600px){
+    width: 80%;
+  }
   a {
     border-radius: 10px;
     background-color: #f2efef;
@@ -58,6 +61,27 @@ export const UsersSearch = styled.div`
 
     svg {
       margin-left: auto;
+    }
+
+    @media (max-width: 500px){
+      #emailUser{
+            display: none;
+          }
+    }
+
+    @media (max-width: 1000px){
+      flex-direction: column;
+        .img-card-user {
+          width: 50px;
+          height: 50px;
+        }
+        .infos-card-user {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+
+        }
     }
   }
 `;

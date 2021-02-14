@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
-//import moment from "moment";
 import api from "../../services/apiGit";
 
 import { StyledContainer, ContainerUser, Repositories } from "./styled";
@@ -28,6 +27,7 @@ const UserInfo = () => {
   const [owner, setOwner] = useState({});
 
   const [filterRepo, setFilterRepo] = useState("1");
+  
   const classes = useStyles();
 
   useEffect(() => {
@@ -85,7 +85,6 @@ const UserInfo = () => {
             </div>
           </div>
         </ContainerUser>
-
         <Repositories>
           <div className="title-user-info">
             <h2>Repositórios</h2>
