@@ -1,18 +1,17 @@
-import Routes from './routes/index'
-import {BrowserRouter} from 'react-router-dom'
+import Routes from "./routes/index";
+import { BrowserRouter } from "react-router-dom";
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const App = () => {
-  return(
+  return (
     <>
-    <BrowserRouter>
-      <CssBaseline /> 
-       <Routes/>
-    </BrowserRouter>
-  </>
-  )
-}
+      <BrowserRouter>
+        <CssBaseline />
+        <Routes />
+      </BrowserRouter>
+    </>
+  );
+};
 
 export default App;

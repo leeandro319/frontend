@@ -44,6 +44,7 @@ const Home = () => {
       <h1>Procure um usuário do GitHub.</h1>
       <Form onSubmit={handleUser}>
         <TextField
+          error={errorSearch}
           label="Digite o nome do usuário"
           variant="outlined"
           type="text"

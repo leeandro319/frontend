@@ -46,7 +46,11 @@ export const Repositories = styled.div`
   width: 90%;
   margin: auto;
 
-
+  .title-user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   ul {
     padding: 0;
     li {
@@ -59,12 +63,11 @@ export const Repositories = styled.div`
       border-radius: 5px;
       text-decoration: none;
       margin-bottom: 20px;
-      box-shadow: 5px 5px 6px 1px rgba(0,0,0,0.10);
-      transition: all .1s ease-in-out;
+      box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.1);
+      transition: all 0.1s ease-in-out;
 
-
-      &:hover{
-        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.10);
+      &:hover {
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
       }
 
       img {
@@ -72,7 +75,7 @@ export const Repositories = styled.div`
         border-radius: 50%;
       }
 
-      .full-tile-repo{
+      .full-tile-repo {
         color: gray;
         font-size: 0.9rem;
         font-style: italic;
@@ -110,13 +113,11 @@ export const Repositories = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            a{
+            a {
               text-decoration: none;
-
             }
 
             svg {
-
               margin-right: 5px;
             }
 
