@@ -10,10 +10,18 @@ export const ContainerUser = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  
+  @media (max-width: 900px){
+    width: auto;
+    flex-direction: column;
+    padding: 0px;
+    
+  }
 
   .img-user-repo {
     width: 150px;
     border-radius: 50%;
+    margin: auto;
   }
 
   .info-user-repo {
@@ -26,6 +34,14 @@ export const ContainerUser = styled.div`
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
+      @media (max-width: 900px){
+        flex-direction: column;
+        align-items: flex-start;
+
+
+       }
+
     }
 
     .social-owner-git {
@@ -48,8 +64,13 @@ export const Repositories = styled.div`
 
   .title-user-info {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 600px){
+      flex-direction: column;
+    }
+
   }
   ul {
     padding: 0;
@@ -66,6 +87,10 @@ export const Repositories = styled.div`
       box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.1);
       transition: all 0.1s ease-in-out;
 
+      @media (max-width: 900px){
+        flex-direction: column;
+      }
+
       &:hover {
         box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
       }
@@ -79,6 +104,10 @@ export const Repositories = styled.div`
         color: gray;
         font-size: 0.9rem;
         font-style: italic;
+        @media (max-width: 900px){
+          display: none;
+        }
+
       }
 
       h3 {
@@ -87,6 +116,7 @@ export const Repositories = styled.div`
         font-size: 1.3rem;
         color: #201f1f;
         margin: 0;
+        word-break: break-all;
       }
 
       .content-repo {
@@ -101,6 +131,7 @@ export const Repositories = styled.div`
           max-width: 98%;
           color: gray;
           padding-bottom: 5px;
+          word-break: break-all;
         }
 
         .content-social-repo {
@@ -109,10 +140,19 @@ export const Repositories = styled.div`
           align-items: center;
           justify-content: space-between;
 
+          @media (max-width: 900px){
+            justify-content: space-around;
+            #url-git{
+                display: none;
+              }
+          }
+          
+
           .icons-social-repo {
             display: flex;
             align-items: center;
             justify-content: center;
+            
             a {
               text-decoration: none;
             }
@@ -144,6 +184,7 @@ export const Repositories = styled.div`
           font-size: 0.8rem;
         }
       }
+
     }
   }
 `;

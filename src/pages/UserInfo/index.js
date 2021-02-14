@@ -121,7 +121,7 @@ const UserInfo = () => {
                       <span>{repository.stargazers_count}</span>
                     </div>
 
-                    <div className="icons-social-repo">
+                    <div className="icons-social-repo" id="url-git">
                       <GitHubIcon />
                       <a
                         href={repository.html_url}
