@@ -33,7 +33,7 @@ Após estes passos, a aplicação já esta pronta para uso.
 
 Essa Aplicação foi criada com a biblioteca React, utilizando ReacJs com a metodologia de desenvolvimento SPA (Single Page Application), para tornar a experiência do usuário ainda melhor, com a rendenrização dos compenentes no navegador do cliente, abaixo contém a lista de dependências utilizadas no projeto:
  - React 17.0.1;
- -- react hooks(feature para melhor manipulação dos estados e outros, sem a necessidades de classes);
+  -- react hooks(feature para melhor manipulação dos estados e outros, sem a necessidades de classes);
  - react-router-dom 5.2.0(Para uma navegação rápida e segura, e manipulação de rotas);
  - styled-components 5.2.1 (melhor desempenho e compatibilidade na renderização dos estilos);
  - Material UI 4.11.3(qualidade de layouts dos componentes, com desenvolvimento ágil e prático);
