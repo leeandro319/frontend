@@ -13,13 +13,12 @@ const CardUser = (props) => {
       <Link to={`/userinfo/${props.login}`} key={props.login}>
         <img className="img-card-user" src={props.sourceImg} alt="Foto" />
         <div className="content-card-user">
-          
-          <Typography className={''} color="primary" variant="h3">
-          {props.nameUser ? props.nameUser : "Não Definido"}
-           </Typography>
+          <Typography className={""} color="primary" variant="h3">
+            {props.nameUser ? props.nameUser : "Não Definido"}
+          </Typography>
 
-           <p>{props.bio}</p>
-                   
+          <p>{props.bio}</p>
+
           <div className="infos-card-user">
             <p id="emailUser">
               <AlternateEmailIcon />

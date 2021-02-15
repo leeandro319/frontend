@@ -3,16 +3,19 @@ import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import SwapHorizontalCircleIcon from "@material-ui/icons/SwapHorizontalCircle";
 
 import { Typography } from "@material-ui/core";
-import { ContainerUser} from "./styled";
-
+import { ContainerUser } from "./styled";
 
 const OwnerInfoCard = (props) => {
   return (
     <>
       <ContainerUser>
-        <img className="img-user-repo" src={props.avatar_url} alt="" />
+        <img
+          className="img-user-repo"
+          src={props.avatar_url}
+          alt="Foto usuário"
+        />
         <div className="info-user-repo">
-          <Typography className={""} color="primary" variant="h2">
+          <Typography color="primary" variant="h2">
             {props.name ? props.name : "Nome não definido"}
           </Typography>
 
@@ -38,4 +41,4 @@ const OwnerInfoCard = (props) => {
   );
 };
 
-export default OwnerInfoCard; 
+export default OwnerInfoCard;

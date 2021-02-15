@@ -2,34 +2,46 @@ import { useEffect, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
 import api from "../../services/apiGit";
-import Header from '../../components/Header'
-import OwnerInfoCard from '../../components/OwnerInfoCard'
+import Header from "../../components/Header";
+import OwnerInfoCard from "../../components/OwnerInfoCard";
 
-import { StyledContainer, Repositories, useStyles } from "./styled";
-import { Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
+import { StyledContainer, Repositories, useStyles, Error } from "./styled";
+import {
+  Button,
+  FormControl,
+  MenuItem,
+  Select,
+  Typography,
+} from "@material-ui/core";
 
 import CallSplitIcon from "@material-ui/icons/CallSplit";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import StarIcon from "@material-ui/icons/Star";
-
 
 const UserInfo = () => {
   const { params } = useRouteMatch();
   const [repositories, setRepositories] = useState([]);
   const [owner, setOwner] = useState({});
 
+  const [errorPage, setErrorPage] = useState("");
+
   const [filterRepo, setFilterRepo] = useState("1");
-  
+
   const classes = useStyles();
 
   useEffect(() => {
-    api.get(`users/${params.usuario}/repos`).then((res) => {
-      const repositoriesResult = res.data;
-      repositoriesResult.sort(
-        (a, b) => b.stargazers_count - a.stargazers_count
-      );
-      setRepositories(repositoriesResult);
-    });
+    api
+      .get(`users/${params.usuario}/repos`)
+      .then((res) => {
+        const repositoriesResult = res.data;
+        repositoriesResult.sort(
+          (a, b) => b.stargazers_count - a.stargazers_count
+        );
+        setRepositories(repositoriesResult);
+      })
+      .catch((error) => {
+        setErrorPage("este usuário não existe");
+      });
     api.get(`users/${params.usuario}`).then((res) => {
       setOwner(res.data);
     });
@@ -55,7 +67,8 @@ const UserInfo = () => {
 
   return (
     <>
-      <Header/>
+      {errorPage && <Error>{errorPage}</Error>}
+      <Header />
       <StyledContainer maxWidth="lg">
         <OwnerInfoCard
           avatar_url={owner.avatar_url}
@@ -64,8 +77,7 @@ const UserInfo = () => {
           email={owner.email}
           followers={owner.followers}
           following={owner.following}
-          />
-
+        />
 
         <Repositories>
           <div className="title-user-info">
@@ -77,10 +89,10 @@ const UserInfo = () => {
                 value={filterRepo}
                 onChange={handleSelect}
               >
-                <MenuItem value={"1"}>Mais estrelas</MenuItem>
+                <MenuItem value={"1"}>Mais Estrelas</MenuItem>
                 <MenuItem value={"2"}>Data de Criação</MenuItem>
-                <MenuItem value={"3"}>Mais forks</MenuItem>
-                <MenuItem value={"4"}>Ordem alfabetica</MenuItem>
+                <MenuItem value={"3"}>Mais Forks</MenuItem>
+                <MenuItem value={"4"}>Ordem Alfabética</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -89,8 +101,8 @@ const UserInfo = () => {
               <li key={repository.id}>
                 <div className="content-repo">
                   <span className="full-tile-repo">{repository.full_name}</span>
-                  <Typography  color="primary" variant="h3">
-                     {repository.name}
+                  <Typography color="primary" variant="h3">
+                    {repository.name}
                   </Typography>
                   <span>{repository.description}</span>
                   <div className="content-social-repo">
@@ -129,9 +141,9 @@ const UserInfo = () => {
                   <Button
                     className={classes.btnInfos}
                     color="primary"
-                    variant="contained" 
-                    >
-                  Mais detalhes
+                    variant="contained"
+                  >
+                    Mais detalhes
                   </Button>
                 </Link>
               </li>

@@ -8,7 +8,6 @@ import { Button, TextField, Typography } from "@material-ui/core";
 import logo from "../../assets/logo.png";
 import api from "../../services/apiGit";
 
-
 const Home = () => {
   const classes = useStyles();
 
@@ -57,10 +56,7 @@ const Home = () => {
           onChange={(e) => setSearchUser(e.target.value)}
           fullWidth
         />
-        <Button
-          color="primary"
-          variant="contained" 
-          type="submit">
+        <Button color="primary" variant="contained" type="submit">
           Procurar
         </Button>
       </Form>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 
 export const StyledContainer = styled(Container)`
   height: 100vh;
@@ -15,7 +15,6 @@ export const StyledContainer = styled(Container)`
   }
 `;
 
-
 export const Form = styled.form`
   width: calc(80% - 80px);
   display: flex;
@@ -23,10 +22,9 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     flex-direction: column;
     width: 80%;
-    
   }
 
   margin-bottom: 30px;
@@ -35,7 +33,7 @@ export const Form = styled.form`
     margin: 0 0 0 10px;
     padding: 15px;
 
-    @media (max-width: 600px){
+    @media (max-width: 600px) {
       margin: 10px 0 0 10px;
       width: 80%;
       padding: 10px;
@@ -55,5 +53,5 @@ export const useStyles = makeStyles({
   titleHome: {
     fontSize: "2.5rem",
     marginBottom: "30px",
-  }
-})
+  },
+});

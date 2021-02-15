@@ -1,24 +1,22 @@
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import { Container } from "@material-ui/core";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { NavBarStyle } from './styles';
+import { NavBarStyle } from "./styles";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const Header = (props) => {
+  const history = useHistory();
 
-  const history =useHistory()
+  const goBack = () => {
+    history.goBack();
+  };
 
-  const goBack =() => {
-    history.goBack()
-  }
-
-
-  return(
+  return (
     <Container maxWidth="lg">
       <NavBarStyle>
-      <ArrowBackIcon onClick={goBack}/>
+        <ArrowBackIcon onClick={goBack} />
       </NavBarStyle>
     </Container>
-  )
-}
+  );
+};
 
 export default Header;

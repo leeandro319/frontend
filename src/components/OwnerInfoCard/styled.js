@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const ContainerUser = styled.div`
   width: calc(80% - 80px);
   margin: 30px 20px;
@@ -9,12 +7,11 @@ export const ContainerUser = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  
-  @media (max-width: 900px){
+
+  @media (max-width: 900px) {
     width: auto;
     flex-direction: column;
     padding: 0px;
-    
   }
 
   .img-user-repo {
@@ -34,13 +31,10 @@ export const ContainerUser = styled.div`
       justify-content: space-between;
       align-items: center;
 
-      @media (max-width: 900px){
+      @media (max-width: 900px) {
         flex-direction: column;
         align-items: flex-start;
-
-
-       }
-
+      }
     }
 
     .social-owner-git {
@@ -56,4 +50,3 @@ export const ContainerUser = styled.div`
     }
   }
 `;
-
