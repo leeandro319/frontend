@@ -57,11 +57,13 @@ export const Repositories = styled.div`
 
       h3 {
         width: 98%;
-
         font-size: 1.3rem;
-        color: #201f1f;
-        margin: 0;
+        margin: 5px 0;
         word-break: break-all;
+      }
+
+      .bio-paragraph{
+        margin: 5px 0;
       }
 
       .content-repo {
@@ -79,6 +81,7 @@ export const Repositories = styled.div`
           display: flex;
           align-items: center;
           justify-content: space-between;
+          margin-top: 15px;
 
           @media (max-width: 900px){
             justify-content: space-around;
@@ -136,8 +139,5 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     minWidth: 200,
   },
-  btnInfos: {
-   
 
-  }
 }));

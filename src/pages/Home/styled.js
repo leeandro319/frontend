@@ -10,8 +10,7 @@ export const StyledContainer = styled(Container)`
   flex-direction: column;
 
   .logo {
-    width: 180px;
-    height: 150px;
+    width: 120px;
     margin: 40px auto;
   }
 `;

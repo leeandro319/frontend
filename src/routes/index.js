@@ -8,8 +8,8 @@ import RepoDetail from "../pages/RepoDetail";
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/userinfo/:usuario+" component={UserInfo} />
-    <Route path="/repo-detail/:detail+" component={RepoDetail} />
+    <Route exact path="/userinfo/:usuario+" component={UserInfo} />
+    <Route exact path="/repo-detail/:detail+" component={RepoDetail} />
   </Switch>
 );
 

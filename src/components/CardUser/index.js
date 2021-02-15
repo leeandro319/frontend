@@ -18,9 +18,7 @@ const CardUser = (props) => {
           {props.nameUser ? props.nameUser : "Não Definido"}
            </Typography>
 
-           <Typography className={''} color="primary" variant="p">
-           {props.bio}
-           </Typography>
+           <p>{props.bio}</p>
                    
           <div className="infos-card-user">
             <p id="emailUser">

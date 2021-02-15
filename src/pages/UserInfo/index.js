@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
 import api from "../../services/apiGit";
+import Header from '../../components/Header'
 import OwnerInfoCard from '../../components/OwnerInfoCard'
 
 import { StyledContainer, Repositories, useStyles } from "./styled";
 import { Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
 
 import CallSplitIcon from "@material-ui/icons/CallSplit";
-import PlayCircleOutlineOutlinedIcon from "@material-ui/icons/PlayCircleOutlineOutlined";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -55,6 +55,7 @@ const UserInfo = () => {
 
   return (
     <>
+      <Header/>
       <StyledContainer maxWidth="lg">
         <OwnerInfoCard
           avatar_url={owner.avatar_url}
@@ -88,12 +89,10 @@ const UserInfo = () => {
               <li key={repository.id}>
                 <div className="content-repo">
                   <span className="full-tile-repo">{repository.full_name}</span>
-                  <Typography className={classes.titleHome} color="primary" variant="h3">
+                  <Typography  color="primary" variant="h3">
                      {repository.name}
                   </Typography>
-                  <Typography className={classes.titleHome} variant="p">
-                  {repository.description}
-                  </Typography>
+                  <span>{repository.description}</span>
                   <div className="content-social-repo">
                     <div className="icons-social-repo">
                       <StarIcon

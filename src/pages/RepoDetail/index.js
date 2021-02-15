@@ -5,6 +5,7 @@ import moment from "moment";
 import api from "../../services/apiGit";
 
 import {StyledContainerRepo, ContentInfoDev, InfoRepository} from './styles'
+import Header from "../../components/Header";
 
 
 const RepoDetail = () => {
@@ -24,6 +25,7 @@ const RepoDetail = () => {
   return (
     <>
     <StyledContainerRepo>
+      <Header/>
       <ContentInfoDev>
         <h1>{datailsRepo.full_name}</h1>
       </ContentInfoDev>

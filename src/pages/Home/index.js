@@ -5,7 +5,7 @@ import CardUser from "../../components/CardUser";
 import { StyledContainer, Form, Error, useStyles } from "./styled";
 import { Button, TextField, Typography } from "@material-ui/core";
 
-import logoGit from "../../assets/Octocat.png";
+import logo from "../../assets/logo.png";
 import api from "../../services/apiGit";
 
 
@@ -43,7 +43,7 @@ const Home = () => {
 
   return (
     <StyledContainer maxWidth="lg">
-      <img className="logo" src={logoGit} alt="Logo GitHub" />
+      <img className="logo" src={logo} alt="Logo GitHub" />
       <Typography className={classes.titleHome} color="primary" variant="h1">
         Procure um usuário do GitHub.
       </Typography>

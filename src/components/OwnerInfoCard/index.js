@@ -16,9 +16,7 @@ const OwnerInfoCard = (props) => {
             {props.name ? props.name : "Nome não definido"}
           </Typography>
 
-          <Typography className={""} color="primary" variant="p">
-            {props.bio ? props.bio : "Descrição não definida"}
-          </Typography>
+          <p>{props.bio ? props.bio : "Descrição não definida"}</p>
 
           <div className="social-user-repo">
             <div className="social-owner-git">
