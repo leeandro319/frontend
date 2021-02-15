@@ -21,7 +21,7 @@ npm install
 # ou
 yarn install
 ```
-Com as dependências instaladas, use o comando abaixo para executar o projeto, 
+Com as dependências instaladas, use o comando abaixo para executar o projeto:
 ```bash
 npm start
 # ou
@@ -40,3 +40,6 @@ Essa Aplicação foi criada com a biblioteca React, utilizando ReacJs com a meto
  - Material UI/Icons 4.11.2;
  - axios 0.21.1(realiza requisições, e converte a resposta da requisição em json);
  - momentJs 2.29.1(manipulação do formato das datas);
+
+
+
