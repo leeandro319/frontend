@@ -2,13 +2,16 @@ import React, { useState } from "react";
 
 import CardUser from "../../components/CardUser";
 
-import { StyledContainer, Form, Error } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import { StyledContainer, Form, Error, useStyles } from "./styled";
+import { Button, TextField, Typography } from "@material-ui/core";
 
 import logoGit from "../../assets/Octocat.png";
 import api from "../../services/apiGit";
 
+
 const Home = () => {
+  const classes = useStyles();
+
   const [searchUser, setSearchUser] = useState("");
   const [userGit, setUserGit] = useState([]);
   const [errorSearch, setErrorSearch] = useState("");
@@ -41,10 +44,12 @@ const Home = () => {
   return (
     <StyledContainer maxWidth="lg">
       <img className="logo" src={logoGit} alt="Logo GitHub" />
-      <h1>Procure um usuário do GitHub.</h1>
+      <Typography className={classes.titleHome} color="primary" variant="h1">
+        Procure um usuário do GitHub.
+      </Typography>
       <Form onSubmit={handleUser}>
         <TextField
-          error={errorSearch}
+          color="primary"
           label="Digite o nome do usuário"
           variant="outlined"
           type="text"
@@ -52,7 +57,10 @@ const Home = () => {
           onChange={(e) => setSearchUser(e.target.value)}
           fullWidth
         />
-        <Button variant="contained" type="submit">
+        <Button
+          color="primary"
+          variant="contained" 
+          type="submit">
           Procurar
         </Button>
       </Form>

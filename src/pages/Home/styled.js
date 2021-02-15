@@ -1,5 +1,5 @@
-import { Container } from "@material-ui/core";
 import styled from "styled-components";
+import {Container, makeStyles } from "@material-ui/core";
 
 export const StyledContainer = styled(Container)`
   height: 100vh;
@@ -15,6 +15,7 @@ export const StyledContainer = styled(Container)`
     margin: 40px auto;
   }
 `;
+
 
 export const Form = styled.form`
   width: calc(80% - 80px);
@@ -50,3 +51,10 @@ export const Error = styled.span`
   margin-bottom: 30px;
   color: red;
 `;
+
+export const useStyles = makeStyles({
+  titleHome: {
+    fontSize: "2.5rem",
+    marginBottom: "30px",
+  }
+})

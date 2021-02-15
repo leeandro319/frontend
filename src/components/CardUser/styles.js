@@ -36,8 +36,8 @@ export const UsersSearch = styled.div`
       h3 {
         width: 100%;
         font-size: 1.5rem;
-        color: #201f1f;
-        border-bottom: 1px solid #848484;
+        padding-bottom: 10px;
+
       }
       p {
         text-align: justify;

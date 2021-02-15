@@ -2,24 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 
 import api from "../../services/apiGit";
+import OwnerInfoCard from '../../components/OwnerInfoCard'
 
-import { StyledContainer, ContainerUser, Repositories } from "./styled";
-import { FormControl, makeStyles, MenuItem, Select } from "@material-ui/core";
+import { StyledContainer, Repositories, useStyles } from "./styled";
+import { Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
 
-import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
-import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import CallSplitIcon from "@material-ui/icons/CallSplit";
-import SwapHorizontalCircleIcon from "@material-ui/icons/SwapHorizontalCircle";
 import PlayCircleOutlineOutlinedIcon from "@material-ui/icons/PlayCircleOutlineOutlined";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import StarIcon from "@material-ui/icons/Star";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 200,
-  },
-}));
 
 const UserInfo = () => {
   const { params } = useRouteMatch();
@@ -64,27 +56,16 @@ const UserInfo = () => {
   return (
     <>
       <StyledContainer maxWidth="lg">
-        <ContainerUser>
-          <img className="img-user-repo" src={owner.avatar_url} alt="" />
-          <div className="info-user-repo">
-            <h1>{owner.name ? owner.name : "Nome não definido"}</h1>
-            <p>{owner.bio ? owner.bio : "Descrição não definida"}</p>
-            <div className="social-user-repo">
-              <div className="social-owner-git">
-                <AlternateEmailIcon />
-                <span>{owner.email ? owner.email : "não definido"}</span>
-              </div>
-              <div className="social-owner-git">
-                <PeopleAltIcon />
-                <span>{owner.followers} Followers</span>
-              </div>
-              <div className="social-owner-git">
-                <SwapHorizontalCircleIcon />
-                <span>{owner.following} Followings</span>
-              </div>
-            </div>
-          </div>
-        </ContainerUser>
+        <OwnerInfoCard
+          avatar_url={owner.avatar_url}
+          name={owner.name}
+          bio={owner.bio}
+          email={owner.email}
+          followers={owner.followers}
+          following={owner.following}
+          />
+
+
         <Repositories>
           <div className="title-user-info">
             <h2>Repositórios</h2>
@@ -107,14 +88,18 @@ const UserInfo = () => {
               <li key={repository.id}>
                 <div className="content-repo">
                   <span className="full-tile-repo">{repository.full_name}</span>
-                  <h3>{repository.name}</h3>
-                  <p>{repository.description}</p>
+                  <Typography className={classes.titleHome} color="primary" variant="h3">
+                     {repository.name}
+                  </Typography>
+                  <Typography className={classes.titleHome} variant="p">
+                  {repository.description}
+                  </Typography>
                   <div className="content-social-repo">
                     <div className="icons-social-repo">
                       <StarIcon
                         color={
                           repository.stargazers_count > 0
-                            ? "primary"
+                            ? "secondary"
                             : "disabled"
                         }
                       />
@@ -142,8 +127,13 @@ const UserInfo = () => {
                   to={`/repo-detail/${repository.full_name}`}
                   className="more-info-repo"
                 >
-                  <PlayCircleOutlineOutlinedIcon />
-                  <span>Mais detalhes</span>
+                  <Button
+                    className={classes.btnInfos}
+                    color="primary"
+                    variant="contained" 
+                    >
+                  Mais detalhes
+                  </Button>
                 </Link>
               </li>
             ))}

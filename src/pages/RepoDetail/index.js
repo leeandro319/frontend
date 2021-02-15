@@ -4,14 +4,16 @@ import moment from "moment";
 
 import api from "../../services/apiGit";
 
+import {StyledContainerRepo, ContentInfoDev, InfoRepository} from './styles'
+
+
 const RepoDetail = () => {
   const { params } = useRouteMatch();
   const [datailsRepo, setDetailsRepo] = useState({});
-  const [statusRepo, setStatus] = useState(false);
+
 
   useEffect(() => {
     api.get(`repos/${params.detail}`).then((res) => {
-      res.status === 200 ? setStatus(true) : setStatus(false);
       const repo = res.data;
       setDetailsRepo(repo);
     });
@@ -21,26 +23,27 @@ const RepoDetail = () => {
 
   return (
     <>
-      <h1>Informações do repositório</h1>
-
-      {statusRepo === false ? (
-        "sem informações"
-      ) : (
+    <StyledContainerRepo>
+      <ContentInfoDev>
+        <h1>{datailsRepo.full_name}</h1>
+      </ContentInfoDev>
+      <InfoRepository>
+        
         <div>
-          <p>Nome completo: {datailsRepo.full_name}</p>
-          <p>Nome: {datailsRepo.name}</p>
-          <p>Descrição: {datailsRepo.description}</p>
-          <p>Estrelas: {datailsRepo.stargazers_count}</p>
-          <p>Linguagens:{datailsRepo.language}</p>
-          <p>Forks:{datailsRepo.forks}</p>
-          <p>url:{datailsRepo.url}</p>
-          <p>subscribers:{datailsRepo.subscribers_count}</p>
-          <p>data criação: {dateFormater(datailsRepo.created_at)}</p>
+          <p>Link Externo: {datailsRepo.url}</p>
+
+        <p>data criação: {dateFormater(datailsRepo.created_at)}</p>
           <p>ultima atualização: {dateFormater(datailsRepo.updated_at)}</p>
           <p>ultimo push:{dateFormater(datailsRepo.pushed_at)}</p>
         </div>
-      )}
-    </>
+          <p>Estrelas: {datailsRepo.stargazers_count}</p>
+          <p>Linguagens:{datailsRepo.language}</p>
+          <p>Forks:{datailsRepo.forks}</p>
+          <p>subscribers:{datailsRepo.subscribers_count}</p>
+
+      </InfoRepository>
+    </StyledContainerRepo>
+      </>
   );
 };
 

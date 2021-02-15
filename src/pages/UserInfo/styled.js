@@ -1,62 +1,7 @@
-import { Container } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 import styled from "styled-components";
 
 export const StyledContainer = styled(Container)``;
-
-export const ContainerUser = styled.div`
-  width: calc(80% - 80px);
-  margin: 30px 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  
-  @media (max-width: 900px){
-    width: auto;
-    flex-direction: column;
-    padding: 0px;
-    
-  }
-
-  .img-user-repo {
-    width: 150px;
-    border-radius: 50%;
-    margin: auto;
-  }
-
-  .info-user-repo {
-    margin-left: 30px;
-    flex: 1;
-
-    .social-user-repo {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      @media (max-width: 900px){
-        flex-direction: column;
-        align-items: flex-start;
-
-
-       }
-
-    }
-
-    .social-owner-git {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      svg {
-        color: red;
-        font-size: 1.8rem;
-        padding-right: 5px;
-      }
-    }
-  }
-`;
 
 export const Repositories = styled.div`
   width: 90%;
@@ -112,7 +57,7 @@ export const Repositories = styled.div`
 
       h3 {
         width: 98%;
-        border-bottom: 1px solid gray;
+
         font-size: 1.3rem;
         color: #201f1f;
         margin: 0;
@@ -127,12 +72,7 @@ export const Repositories = styled.div`
         justify-content: center;
         padding-left: 20px;
 
-        p {
-          max-width: 98%;
-          color: gray;
-          padding-bottom: 5px;
-          word-break: break-all;
-        }
+
 
         .content-social-repo {
           width: 90%;
@@ -142,6 +82,7 @@ export const Repositories = styled.div`
 
           @media (max-width: 900px){
             justify-content: space-around;
+            margin-bottom: 20px;
             #url-git{
                 display: none;
               }
@@ -159,12 +100,13 @@ export const Repositories = styled.div`
 
             svg {
               margin-right: 5px;
+              color: #7e84fc;
             }
 
-            span {
-              color: gray;
-              font-size: 0.9rem;
-            }
+              span {
+                color: gray;
+                font-size: 0.9rem;
+              }
           }
         }
       }
@@ -188,3 +130,14 @@ export const Repositories = styled.div`
     }
   }
 `;
+
+export const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 200,
+  },
+  btnInfos: {
+   
+
+  }
+}));
